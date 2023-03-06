@@ -111,7 +111,8 @@ function UpdateImage(file, alpha) {
                     if (pixStr == `<mark=#00000000>`) {
                         pixelStrings.push(`<#00000000>`)
 		    } else if (pixStr != lastPix && lastPix == `<mark=#00000000>`) {
-                    pixelStrings.push(`<#FFFFFFFF>`);
+                        pixelStrings.push(`<#FFFFFFFF>`);
+		    }   
                     pixelStrings.push(pixStr);
                 }
                 lastPix = pixStr;
