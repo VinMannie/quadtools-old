@@ -103,8 +103,9 @@ function UpdateImage(file, alpha) {
         for (let y = 0; y < img.naturalHeight; y++) {
             for (let x = 0; x < img.naturalWidth; x++) {
                 let pixel = context.getImageData(x, y, 1, 1).data;
-				let pixStr = `<mark=#${rgbToHex(pixel[0], pixel[1], pixel[2])}${alpha ? numToHex(pixel[3]) : ''}></mark>`;
+				let pixStr = `<mark=#${rgbToHex(pixel[0], pixel[1], pixel[2])}${alpha ? numToHex(pixel[3]) : ''}>`;
                 if (pixStr != lastPix) {
+                    pixelStrings.push(`</mark>`);	
                     pixelStrings.push(pixStr);
                 }
                 lastPix = pixStr;
