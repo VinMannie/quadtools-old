@@ -95,7 +95,7 @@ function UpdateImage(file, alpha) {
     img.onload = function () {
 
         let pixelStrings = [];
-        pixelStrings.push("<line-height=14.5><cspace=-0.65>");
+        pixelStrings.push("<line-height=25%><cspace=-0.65>");
 
         context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
 
@@ -103,14 +103,14 @@ function UpdateImage(file, alpha) {
         for (let y = 0; y < img.naturalHeight; y++) {
             for (let x = 0; x < img.naturalWidth; x++) {
                 let pixel = context.getImageData(x, y, 1, 1).data;
-				let pixStr = `<#${rgbToHex(pixel[0], pixel[1], pixel[2])}${alpha ? numToHex(pixel[3]) : ''}>`;
+				let pixStr = `<mark=#${rgbToHex(pixel[0], pixel[1], pixel[2])}${alpha ? numToHex(pixel[3]) : ''}></mark>`;
                 if (pixStr != lastPix) {
                     pixelStrings.push(pixStr);
                 }
                 lastPix = pixStr;
-                pixelStrings.push(`█`);
+                pixelStrings.push(`∎`);
             }
-            pixelStrings.push('<br>');
+            pixelStrings.push('\n');
         }
 
         output = pixelStrings.join("");
