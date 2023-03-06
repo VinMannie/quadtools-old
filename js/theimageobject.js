@@ -95,7 +95,7 @@ function UpdateImage(file, alpha) {
     img.onload = function () {
 
         let pixelStrings = [];
-        pixelStrings.push("<line-height=25%><cspace=-0.4>");
+        pixelStrings.push("<size=25%><line-height=50%><cspace=0>"); // you can set size to whatever
 
         context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
 
