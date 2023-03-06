@@ -27,7 +27,7 @@
     <meta property="og:title" content="The Image Object" />
     <meta
       property="og:description"
-      content="An image to text object converter for Project Arrhythmia."
+      content="An image to captions converter for Heaven Studio."
     />
     <meta property="og:url" content="../theimageobject/" />
     <meta
@@ -64,17 +64,6 @@
         <hr class="header__bar__line" color="white" size="4px" />
       </div>
 
-      <div class="info">
-        <img class="info__img" src="../img/info.svg" alt="" />
-        <h1 class="info__header">QuadTools is currently being maintained!</h1>
-        <p style="margin-top: 0.2em">
-          We're working on adding new tools and improving the existing ones!
-        </p>
-        <p>
-          For now you can just use the current ones, but beware that they're
-          <span style="font-weight: 700">deprecated</span>.
-        </p>
-      </div>
 
       <div class="header__bar">
         <hr class="header__bar__line" color="white" size="4px" />
@@ -116,7 +105,10 @@
           class="tto__column__step__desc"
           style="font-size: 20px; margin-bottom: 32px"
         >
-          (Max recommended size: 32x32)
+          (Recommended size: 32x32)
+          (If your image displays too small,
+          you can change the size % at the
+          start of your captions!)
         </div>
         <div class="uploadfile__dragarea">
           <i
@@ -240,15 +232,16 @@
               style="color: inherit; font-size: inherit"
             ></i>
             <span style="color: inherit; font-size: inherit"
-              >The result has more than 16,382 symbols, which is the symbol
-              limit for a single text object. Some pixels will be lost.</span
+              >The result uses a lot of characters! Larger images will
+              lag and possibly not display, so try shrinking this image
+              manually in your photo editor of choice.</span
             >
           </div>
         </div>
       </div>
     </div>
     <div class="footer">
-      <span style="font-size: 16px; margin-right: 4px">Made by enchart</span>
+      <span style="font-size: 16px; margin-right: 4px">Originally made by enchart</span>
       <a href="https://www.youtube.com/enchart" target="_blank">
         <i class="fab fa-youtube" style="font-size: 16px"></i>
       </a>
