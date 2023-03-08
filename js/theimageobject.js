@@ -95,8 +95,11 @@ function UpdateImage(file, alpha) {
     img.onload = function () {
 
         let pixelStrings = [];
-        pixelStrings.push("<size=25%><line-height=50%><cspace=0>"); // you can set size to whatever
-
+	if (alpha) {
+		pixelStrings.push("<size=25%><line-height=55.86%><cspace=0.5em><mark=#ff2900ff><font="LiberationSans SDF" material="LiberationSans SDF - Fallback">"); 
+	} else {
+		pixelStrings.push("<size=25%><line-height=50%><cspace=0>"); // you can set size to whatever
+	}
         context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
 
         let lastPix = null;
