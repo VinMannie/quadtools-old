@@ -111,7 +111,7 @@ function UpdateImage(file, alpha, altfont) {
                     if (lastPix != null) {
                     pixelStrings.push(`</mark>`);
 		    }
-                    if (pixStr == `<mark=#00000000>`) {
+                    if (pixStr == `<mark=#00000000>` && !altfont) {
                         pixelStrings.push(`<#00000000>`)
 		    } else if (pixStr != lastPix && lastPix == `<mark=#00000000>`) {
                         pixelStrings.push(`<#FFFFFFFF>`);
