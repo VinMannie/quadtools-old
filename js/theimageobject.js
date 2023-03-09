@@ -82,12 +82,12 @@ function OnFileDrop(file) {
 }
 
 document.querySelector(".convertbutton").onclick = function (event) {
-    UpdateImage(globalFile, document.getElementById("usetransparency").checked, document.getElementById("altfont").checked);
+    UpdateImage(globalFile, document.getElementById("usetransparency").checked, document.getElementById("altfont").checked, document.getElementById("imgsize").value);
 }
 
 let output = "";
 
-function UpdateImage(file, alpha, altfont) {
+function UpdateImage(file, alpha, altfont, imgsize) {
     let canvas = document.createElement('canvas');
     let context = canvas.getContext('2d');
     let img = new Image();
@@ -96,9 +96,9 @@ function UpdateImage(file, alpha, altfont) {
 
         let pixelStrings = [];
 	if (altfont) {
-        pixelStrings.push(`<size=25%><line-height=55.86%><cspace=0.5em><mark=#ff2900ff><font="LiberationSans SDF" material="LiberationSans SDF - Fallback">`); 
+        pixelStrings.push(`<size=${imgsize}%><line-height=55.86%><cspace=0.5em><mark=#ff2900ff><font="LiberationSans SDF" material="LiberationSans SDF - Fallback">`); 
 	} else {
-        pixelStrings.push(`<size=25%><line-height=50%><cspace=0>`); // you can set size to whatever
+        pixelStrings.push(`<size=${imgsize}%><line-height=50%><cspace=0>`); // you can set size to whatever
 	}
         context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
 
