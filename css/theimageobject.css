@@ -215,6 +215,16 @@ body * {
     position: absolute;
 }
 
+.checkbox__container input[type=number], select {
+  width: 5%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 .checkbox__checkmark {
     display: flex;
     width: 32px;
