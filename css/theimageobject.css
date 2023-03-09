@@ -215,7 +215,7 @@ body * {
     position: absolute;
 }
 
-.checkbox__container input[type=number], select {
+.checkmark input[type=number], select {
   width: 5%;
   padding: 12px 20px;
   margin: 8px 0;
