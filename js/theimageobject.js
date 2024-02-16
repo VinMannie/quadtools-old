@@ -96,7 +96,7 @@ function UpdateImage(file, alpha, altfont, imgsize) {
 
         let pixelStrings = [];
 	if (altfont) {
-        pixelStrings.push(`<size=${!imgsize == '' ? imgsize : '25'}%><line-height=55.86%><cspace=0.5em><mark=#ff2900ff><font="LiberationSans SDF" material="LiberationSans SDF - Fallback">`); 
+        pixelStrings.push(`<size=${!imgsize == '' ? imgsize : '25'}%><line-height=41.9%><cspace=-0.17e><font="Roboto">`); 
 	} else {
         pixelStrings.push(`<size=${!imgsize == '' ? imgsize : '25'}%><line-height=50%><cspace=0>`); // you can set size to whatever
 	}
@@ -106,20 +106,32 @@ function UpdateImage(file, alpha, altfont, imgsize) {
         for (let y = 0; y < img.naturalHeight; y++) {
             for (let x = 0; x < img.naturalWidth; x++) {
                 let pixel = context.getImageData(x, y, 1, 1).data;
-				let pixStr = `<mark=#${rgbToHex(pixel[0], pixel[1], pixel[2])}${alpha ? numToHex(pixel[3]) : ''}>`;
+				let pixStr = `${rgbToHex(pixel[0], pixel[1], pixel[2])}${alpha ? numToHex(pixel[3]) : ''}`;
                 if (pixStr != lastPix) {
                     if (lastPix != null) {
+                    if (altfont) {
+                    pixelStrings.push(`</color>`);
+                } else {
                     pixelStrings.push(`</mark>`);
+                }
 		    }
-                    if (pixStr == `<mark=#00000000>` && !altfont) {
+                    if (pixStr == `00000000` && !altfont) {
                         pixelStrings.push(`<#00000000>`)
-		    } else if (pixStr != lastPix && lastPix == `<mark=#00000000>`) {
+		    } else if (pixStr != lastPix && lastPix == `00000000`) {
                         pixelStrings.push(`<#FFFFFFFF>`);
-		    }   
-                    pixelStrings.push(pixStr);
+		    }   if (altfont) {
+                    pixelStrings.push(`<#` + pixStr + `>`);
+                } else {
+                    pixelStrings.push(`<mark=#` + pixStr + `>`);
+                }
                 }
                 lastPix = pixStr;
-                pixelStrings.push(`∎`);
+                if (altfont) {
+                    pixelStrings.push(`■`);
+
+                } else {
+                    pixelStrings.push(`□`);
+                }
             }
             pixelStrings.push('\n');
         }
